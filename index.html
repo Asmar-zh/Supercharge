@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supercharge - Validate Your SaaS Ideas with Confidence</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 20px 0;
+            background: rgba(15, 20, 25, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 193, 7, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffc107;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #ffc107;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 193, 7, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #ffffff 0%, #ffc107 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: #b8c5d1;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+            color: #000;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(255, 193, 7, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(255, 193, 7, 0.4);
+        }
+        
+        /* Three Pillars Section */
+        .pillars {
+            padding: 80px 0;
+            background: rgba(26, 35, 50, 0.5);
+        }
+        
+        .pillars h2 {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: #ffc107;
+        }
+        
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .pillar-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 193, 7, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 193, 7, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .pillar-icon {
+            font-size: 48px;
+            color: #ffc107;
+            margin-bottom: 24px;
+        }
+        
+        .pillar-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+        
+        .pillar-card p {
+            color: #b8c5d1;
+            line-height: 1.6;
+        }
+        
+        /* PMF Score Preview */
+        .pmf-preview {
+            padding: 80px 0;
+        }
+        
+        .pmf-preview h2 {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffc107;
+        }
+        
+        .pmf-preview .subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #b8c5d1;
+            margin-bottom: 60px;
+        }
+        
+        .pmf-dashboard {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 193, 7, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .score-display {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .score-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: conic-gradient(#ffc107 0deg 252deg, rgba(255, 193, 7, 0.2) 252deg 360deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+        
+        .score-circle::before {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: #0f1419;
+            border-radius: 50%;
+        }
+        
+        .score-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #ffc107;
+            z-index: 1;
+        }
+        
+        .score-components {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .component {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .component-name {
+            font-size: 14px;
+            color: #b8c5d1;
+            margin-bottom: 8px;
+        }
+        
+        .component-score {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffc107;
+        }
+        
+        .data-sources {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .source-icon {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 20px;
+            color: #ffc107;
+        }
+        
+        /* Roadmap Preview */
+        .roadmap-preview {
+            padding: 80px 0;
+            background: rgba(26, 35, 50, 0.5);
+        }
+        
+        .roadmap-preview h2 {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffc107;
+        }
+        
+        .roadmap-preview .subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #b8c5d1;
+            margin-bottom: 60px;
+        }
+        
+        .roadmap-board {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 193, 7, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .roadmap-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .roadmap-column {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .column-header {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffc107;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .task-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 3px solid #ffc107;
+        }
+        
+        .task-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+        
+        .task-meta {
+            font-size: 12px;
+            color: #b8c5d1;
+        }
+        
+        /* Comparison Table */
+        .comparison {
+            padding: 80px 0;
+        }
+        
+        .comparison h2 {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: #ffc107;
+        }
+        
+        .comparison-table {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 193, 7, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .table-header {
+            background: rgba(255, 193, 7, 0.1);
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 20px;
+            font-weight: 600;
+        }
+        
+        .table-row {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .table-row:last-child {
+            border-bottom: none;
+        }
+        
+        .supercharge-row {
+            background: rgba(255, 193, 7, 0.05);
+        }
+        
+        .check-mark {
+            color: #4caf50;
+            font-size: 18px;
+        }
+        
+        .x-mark {
+            color: #f44336;
+            font-size: 18px;
+        }
+        
+        /* Waitlist Section */
+        .waitlist {
+            padding: 80px 0;
+            background: rgba(26, 35, 50, 0.5);
+            text-align: center;
+        }
+        
+        .waitlist h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffc107;
+        }
+        
+        .waitlist p {
+            font-size: 18px;
+            color: #b8c5d1;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tally-embed {
+            max-width: 500px;
+            margin: 0 auto 20px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 193, 7, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .tally-embed iframe {
+            border-radius: 12px;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            background: #0f1419;
+            border-top: 1px solid rgba(255, 193, 7, 0.1);
+            text-align: center;
+        }
+        
+        .footer-content {
+            color: #b8c5d1;
+            font-size: 14px;
+        }
+        
+        .privacy-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 193, 7, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-top: 16px;
+            font-size: 12px;
+            color: #ffc107;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .pillar-card {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .pillar-card:nth-child(2) {
+            animation-delay: -2s;
+        }
+        
+        .pillar-card:nth-child(3) {
+            animation-delay: -4s;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .table-header,
+            .table-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .roadmap-columns {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero {
+                padding: 120px 0 60px;
+            }
+            
+            .pillars h2,
+            .pmf-preview h2,
+            .roadmap-preview h2,
+            .comparison h2,
+            .waitlist h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">⚡ Supercharge</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#pillars">Features</a></li>
+                        <li><a href="#pmf">PMF Score</a></li>
+                        <li><a href="#roadmap">Roadmap</a></li>
+                        <li><a href="#waitlist">Beta Access</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Validate Your SaaS Ideas<br>with Complete Confidence</h1>
+            <p>Get a transparent Product-Market Fit score, personalized roadmap, and secure workspace to turn your startup idea into reality. Built by founders, for founders.</p>
+            <a href="#waitlist" class="cta-button">Start Validating Now</a>
+        </div>
+    </section>
+
+    <!-- Three Pillars Section -->
+    <section class="pillars" id="pillars">
+        <div class="container">
+            <h2>Built on Three Core Pillars</h2>
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Trust</h3>
+                    <p>Your ideas stay completely private with our Private Mode toggle. We don't store or sell your data - ever. Your intellectual property is protected with enterprise-grade encryption while you validate and build.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Transparency</h3>
+                    <p>See exactly how your PMF score is calculated. We pull real data from Reddit, Twitter, G2, Google Trends, and Indie Hackers, then break it down into clear components: Market Demand, Innovation Signal, Competitor Saturation, and Execution Readiness.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3>Trajectory</h3>
+                    <p>Get a personalized roadmap tailored to your skills, tools, and stage. Whether you're a developer, no-code builder, or marketer - we'll create an actionable plan that fits your exact situation and moves you forward.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PMF Score Preview -->
+    <section class="pmf-preview" id="pmf">
+        <div class="container">
+            <h2>Your PMF Score, Explained</h2>
+            <p class="subtitle">See exactly how your idea ranks across key validation metrics</p>
+            <div class="pmf-dashboard">
+                <div class="score-display">
+                    <div class="score-circle">
+                        <div class="score-number">72</div>
+                    </div>
+                    <h3>Strong Product-Market Fit Potential</h3>
+                </div>
+                
+                <div class="score-components">
+                    <div class="component">
+                        <div class="component-name">Market Demand</div>
+                        <div class="component-score">84</div>
+                    </div>
+                    <div class="component">
+                        <div class="component-name">Innovation Signal</div>
+                        <div class="component-score">68</div>
+                    </div>
+                    <div class="component">
+                        <div class="component-name">Competitor Saturation</div>
+                        <div class="component-score">56</div>
+                    </div>
+                    <div class="component">
+                        <div class="component-name">Execution Readiness</div>
+                        <div class="component-score">79</div>
+                    </div>
+                </div>
+                
+                <div class="data-sources">
+                    <div class="source-icon" title="Reddit">
+                        <i class="fab fa-reddit"></i>
+                    </div>
+                    <div class="source-icon" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <div class="source-icon" title="G2">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="source-icon" title="Google Trends">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <div class="source-icon" title="Product Hunt">
+                        <i class="fab fa-product-hunt"></i>
+                    </div>
+                    <div class="source-icon" title="Indie Hackers">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Preview -->
+    <section class="roadmap-preview" id="roadmap">
+        <div class="container">
+            <h2>Your Personalized Roadmap</h2>
+            <p class="subtitle">Tailored to your skills, tools, and startup stage</p>
+            <div class="roadmap-board">
+                <div class="roadmap-columns">
+                    <div class="roadmap-column">
+                        <div class="column-header">📋 To Do</div>
+                        <div class="task-card">
+                            <div class="task-title">Validate problem with 10 potential users</div>
+                            <div class="task-meta">Week 1 • Research</div>
+                        </div>
+                        <div class="task-card">
+                            <div class="task-title">Create landing page wireframe</div>
+                            <div class="task-meta">Week 2 • Design</div>
+                        </div>
+                        <div class="task-card">
+                            <div class="task-title">Set up payment processing</div>
+                            <div class="task-meta">Week 3 • Development</div>
+                        </div>
+                    </div>
+                    <div class="roadmap-column">
+                        <div class="column-header">🔄 In Progress</div>
+                        <div class="task-card">
+                            <div class="task-title">Build MVP using Webflow</div>
+                            <div class="task-meta">Week 2-3 • No-code</div>
+                        </div>
+                        <div class="task-card">
+                            <div class="task-title">Connect Stripe integration</div>
+                            <div class="task-meta">Week 3 • Zapier</div>
+                        </div>
+                    </div>
+                    <div class="roadmap-column">
+                        <div class="column-header">✅ Done</div>
+                        <div class="task-card">
+                            <div class="task-title">Complete market research</div>
+                            <div class="task-meta">Week 1 • Research</div>
+                        </div>
+                        <div class="task-card">
+                            <div class="task-title">Define target audience</div>
+                            <div class="task-meta">Week 1 • Strategy</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison">
+        <div class="container">
+            <h2>Why Choose Supercharge?</h2>
+            <div class="comparison-table">
+                <div class="table-header">
+                    <div>Feature</div>
+                    <div>Supercharge</div>
+                    <div>ValidatorAI</div>
+                    <div>Yazero</div>
+                    <div>SolveActualProblems</div>
+                </div>
+                <div class="table-row supercharge-row">
+                    <div>Transparent PMF Scoring</div>
+                    <div><i class="fas fa-check check-mark"></i></div>
+                    <div><i class="fas fa-times x-mark"></i></div>
+                    <div><i class="fas fa-times x-mark"></i></div>
+                    <div><i class="fas fa-times x-mark"></i></div>
+                </div>
+                <div class="table-row">
+                    <div>Custom Roadmap Generation</div>
+                    <div><i class="fas fa-check check-mark"></i></div>
+                    <div><i class="fas fa-times x-mark"></i></div>
+                    <div><i class="fas fa-check check-mark"></i></div>
+                    <div><i class="fas fa-times x-mark"></i></div>
+                </div>
+                <div class="table-row supercharge-row">
+                    <div>Private Mode Protection</div>
+                    <div><i class="fas fa-check check-mark"></i></div>
+                    <div><i class="fas fa-times x-mark"></i></div>
+                    <div><i class="fas fa-times x-mark"></i></div>
+                    <div><i class="fas fa-times x-mark"></i></div>
+                </div>
+                <div class="table-row">
+                    <div>Multi-Source Data Analysis</div>
+                    <div><i class="fas fa-check check-mark"></i></div>
+                    <div><i class="fas fa-check check-mark"></i></div>
+                    <div><i class="fas fa-times x-mark"></i></div>
+                    <div><i class="fas fa-check check-mark"></i></div>
+                </div>
+                <div class="table-row supercharge-row">
+                    <div>Skill-Based Customization</div>
+                    <div><i class="fas fa-check check-mark"></i></div>
+                    <div><i class="fas fa-times x-mark"></i></div>
+                    <div><i class="fas fa-times x-mark"></i></div>
+                    <div><i class="fas fa-times x-mark"></i></div>
+                </div>
+                <div class="table-row">
+                    <div>AI Idea Enhancer & Suggester</div>
+                    <div><i class="fas fa-check check-mark"></i></div>
+                    <div><i class="fas fa-times x-mark"></i></div>
+                    <div><i class="fas fa-times x-mark"></i></div>
+                    <div><i class="fas fa-times x-mark"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist Section -->
+    <section class="waitlist" id="waitlist">
+        <div class="container">
+            <h2>Join the Beta</h2>
+            <p>Be among the first founders to validate your ideas with complete confidence. Get early access to Supercharge and start building your startup the right way.</p>
+            
+            <div class="tally-embed">
+                <iframe src="https://tally.so/embed/wzAGl8?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+                loading="lazy" width="100%" height="300" frameborder="0" marginheight="0" marginwidth="0" 
+                title="Supercharge Beta Access" style="background: transparent;"></iframe>
+            </div>
+            
+            <div class="privacy-badge">
+                <i class="fas fa-lock"></i>
+                <span>Your email is safe with us. No spam, ever.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Supercharge. Built by founders, for founders.</p>
+                <p>We don't store or sell your data. Your ideas stay private.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate score on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const scoreElement = entry.target.querySelector('.score-number');
+                    if (scoreElement && !scoreElement.classList.contains('animated')) {
+                        scoreElement.classList.add('animated');
+                        animateScore(scoreElement, 72);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        const pmfSection = document.querySelector('.pmf-preview');
+        if (pmfSection) {
+            observer.observe(pmfSection);
+        }
+
+        function animateScore(element, targetScore) {
+            let currentScore = 0;
+            const increment = targetScore / 30;
+            const timer = setInterval(() => {
+                currentScore += increment;
+                if (currentScore >= targetScore) {
+                    currentScore = targetScore;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.round(currentScore);
+            }, 50);
+        }
+
+        // Add parallax effect to hero section (lighter effect for better performance)
+        let ticking = false;
+        
+        function updateParallax() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.
